@@ -1,2 +1,131 @@
 :root {
+  --primary: #57a6ff;
+  --white: #fffffe;
+  --black: #141414;
+  --grey: #8b949e;
+  --bg: #0d1117;
+  --button: #22262c;
+  --grey-2: #c5ced7;
+  --pink: #cc68a0;
+  --yellow: #f1e05a;
+  --purple: #563d7c;
+  --black-2: #171b21;
+  /* Fonts */
+  --headline1: 600 1.625rem/2rem "Inter";
+  --button-text: 500 0.875rem/1.5rem "Inter";
+  --headline2-semi-bold: 600 1.25rem/1.5rem "Inter";
+  --headline2-ligth: 300 1.25rem/1.5rem "Inter";
+  --body1-regular: 400 1rem/1.5rem "Inter";
+  --body1-semi-bold: 700 1rem/1.5rem "Inter";
+  --body2-regular: 400 0.875rem/1.5rem "Inter";
+  --body2-semi-bold: 600 0.875rem/1.5rem "Inter";
+  --caption-regular: 400 0.75rem/1.125rem "Inter";
+  --caption-medium: 500 0.75rem/1.125rem "Inter";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font: var(--body1-regular);
+  color: white;
+}
+
+body {
+  background: var(--bg);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  padding-top: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+.user {
+  display: grid;
+  gap: 24px;
+}
+.user__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.user__header__photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--grey-2);
+}
+.user__header__content__username {
+  font: var(--headline1);
+}
+.user__header__content__name {
+  font: var(--headline2-ligth);
+  color: var(--grey-2);
+}
+.user__desc {
+  display: grid;
+  gap: 16px;
+}
+.user__desc__stats {
+  display: flex;
+  justify-content: space-between;
+}
+.user__stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user__stats__number {
+  font: var(--body2-semi-bold);
+  color: var(--grey-2);
+}
+.user__stats__desc {
+  font: var(--body2-regular);
+  color: var(--grey);
+}
+.user__info {
+  display: grid;
+  gap: 16px;
+  list-style: none;
+}
+.user__info li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user__info a,
+span {
+  font: var(--body2-regular);
+  color: var(--grey-2);
+  text-decoration: none;
+}
+.user__actions {
+  display: flex;
+  gap: 8px;
+}
+.user__actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 0;
+  color: white;
+  font: var(--button);
+  border-radius: 8px;
+  background: var(--button-text);
+  border: 1px solid var(--grey);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding-top: 40px;
+  }
 }
