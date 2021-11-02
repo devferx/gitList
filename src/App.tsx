@@ -1,4 +1,7 @@
+import React from "react";
+
 import { useGithubProfile } from "./hooks/useGithubProfile";
+import { Loading } from "./components/Loading";
 import { Repository } from "./components/Repository";
 
 import users from "./assets/icons/users.svg";
@@ -7,18 +10,18 @@ import mapPin from "./assets/icons/map-pin.svg";
 import link from "./assets/icons/link.svg";
 import twitter from "./assets/icons/twitter.svg";
 import heart from "./assets/icons/heart.svg";
-import monaLoadingDark from "./assets/images/mona-loading-dark.gif";
 
 export const App = () => {
-  const { user, repositories, isLoading } = useGithubProfile("devferx");
+  const { user, repositories, isLoading, searchResults, searchRepository } =
+    useGithubProfile("devferx");
+
   if (isLoading || !user) {
-    return (
-      <div className="loading-container">
-        <img src={monaLoadingDark} alt="Loading gif" />
-        <p>One moment please...</p>
-      </div>
-    );
+    return <Loading />;
   }
+
+  const handleInputSearch = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    searchRepository(ev.target.value);
+  };
 
   return (
     <main className="container">
@@ -91,11 +94,16 @@ export const App = () => {
           className="repositories__search-input"
           type="search"
           placeholder="Find a repository"
+          onChange={handleInputSearch}
         />
         <div className="repositories__container">
-          {repositories.map((repo) => (
-            <Repository key={repo.id} repo={repo} />
-          ))}
+          {searchResults.length === 0
+            ? repositories.map((repo) => (
+                <Repository key={repo.id} repo={repo} />
+              ))
+            : searchResults.map((repo) => (
+                <Repository key={repo.id} repo={repo} />
+              ))}
         </div>
       </section>
     </main>

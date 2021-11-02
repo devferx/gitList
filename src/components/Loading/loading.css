@@ -1,0 +1,13 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 32px;
+}
+.loading-container img {
+  width: 50px;
+}
+.loading-container p {
+  font: var(--body1-regular);
+}
