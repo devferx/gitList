@@ -5,6 +5,7 @@ import link from "./assets/icons/link.svg";
 import twitter from "./assets/icons/twitter.svg";
 import heart from "./assets/icons/heart.svg";
 import { useGithubProfile } from "./hooks/useGithubProfile";
+import { Repository } from "./components/Repository";
 
 export const App = () => {
   const { user, repositories, isLoading } = useGithubProfile("devferx");
@@ -75,6 +76,19 @@ export const App = () => {
           <button>
             <img src={heart} alt="heart" /> Sponsor
           </button>
+        </div>
+      </section>
+
+      <section className="repositories">
+        <input
+          className="repositories__search-input"
+          type="search"
+          placeholder="Find a repository"
+        />
+        <div className="repositories__container">
+          {repositories.map((repo) => (
+            <Repository key={repo.id} repo={repo} />
+          ))}
         </div>
       </section>
     </main>
