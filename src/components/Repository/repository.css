@@ -22,6 +22,9 @@
   color: var(--primary);
   font: var(--headline2-semi-bold);
 }
+.repository__title a:hover {
+  text-decoration: underline;
+}
 .repository__title__tag {
   display: grid;
   place-items: center;
@@ -36,6 +39,7 @@
 }
 .repository__topics {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
 }
 .repository__topics span {

@@ -1,16 +1,23 @@
+import { useGithubProfile } from "./hooks/useGithubProfile";
+import { Repository } from "./components/Repository";
+
 import users from "./assets/icons/users.svg";
 import star from "./assets/icons/star.svg";
 import mapPin from "./assets/icons/map-pin.svg";
 import link from "./assets/icons/link.svg";
 import twitter from "./assets/icons/twitter.svg";
 import heart from "./assets/icons/heart.svg";
-import { useGithubProfile } from "./hooks/useGithubProfile";
-import { Repository } from "./components/Repository";
+import monaLoadingDark from "./assets/images/mona-loading-dark.gif";
 
 export const App = () => {
   const { user, repositories, isLoading } = useGithubProfile("devferx");
   if (isLoading || !user) {
-    return <p>Loading</p>;
+    return (
+      <div className="loading-container">
+        <img src={monaLoadingDark} alt="Loading gif" />
+        <p>One moment please...</p>
+      </div>
+    );
   }
 
   return (
