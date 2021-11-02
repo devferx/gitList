@@ -1,0 +1,86 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.user__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.user__header__photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--grey-2);
+}
+.user__header__content__username {
+  font: var(--headline1);
+}
+.user__header__content__name {
+  font: var(--headline2-ligth);
+  color: var(--grey-2);
+}
+.user__desc {
+  display: grid;
+  gap: 16px;
+}
+.user__desc__stats {
+  display: flex;
+  justify-content: space-between;
+}
+.user__stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user__stats__number {
+  font: var(--body2-semi-bold);
+  color: var(--grey-2);
+}
+.user__stats__desc {
+  font: var(--body2-regular);
+  color: var(--grey);
+}
+.user__info {
+  display: grid;
+  gap: 16px;
+  list-style: none;
+}
+.user__info li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.user__info a,
+span {
+  font: var(--body2-regular);
+  color: var(--grey-2);
+  text-decoration: none;
+}
+.user__actions {
+  display: flex;
+  gap: 8px;
+}
+.user__actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 0;
+  color: white;
+  font: var(--button);
+  border-radius: 8px;
+  background: var(--button-text);
+  border: 1px solid var(--grey);
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .user {
+    position: sticky;
+    top: 40px;
+    height: max-content;
+  }
+}
