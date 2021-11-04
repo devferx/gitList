@@ -6,6 +6,8 @@ import { GithubProfile } from "./components/GithubProfile";
 import { User } from "./components/User";
 import { RepositoryList } from "./components/RepositoryList";
 
+const USER = new URL(window.location.href).searchParams.get("user");
+
 export const App = () => {
   const {
     user,
@@ -14,7 +16,7 @@ export const App = () => {
     searchQuery,
     searchResults,
     searchRepository,
-  } = useGithubProfile("devferx");
+  } = useGithubProfile(USER || "devferx");
 
   return (
     <GithubProfile
