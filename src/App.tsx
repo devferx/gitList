@@ -28,9 +28,7 @@ export const App = () => {
         repositories={repositories}
         searchResults={searchResults}
         searchRepository={searchRepository}
-        onEmptySearchResults={(query) => (
-          <p>No se encontraron resultados para {query}</p>
-        )}
+        onEmptySearchResults={(query) => <p>No results found for {query}</p>}
         renderRepositories={(repo) => <Repository key={repo.id} repo={repo} />}
         renderSearchResults={(repo) => <Repository key={repo.id} repo={repo} />}
       />
