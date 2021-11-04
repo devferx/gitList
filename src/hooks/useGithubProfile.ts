@@ -5,6 +5,7 @@ import { GithubApiUserResponse, Repository } from "../interfaces/githubApi";
 export const useGithubProfile = (username: string) => {
   const [user, setUser] = useState<GithubApiUserResponse>();
   const [repositories, setRepositories] = useState<Repository[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Repository[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -24,6 +25,7 @@ export const useGithubProfile = (username: string) => {
   }, [username]);
 
   const searchRepository = (query: string) => {
+    setSearchQuery(query.trim());
     const results = repositories.filter((repo) =>
       repo.name.toLowerCase().includes(query.toLowerCase())
     );
@@ -34,6 +36,7 @@ export const useGithubProfile = (username: string) => {
     user,
     repositories,
     isLoading,
+    searchQuery,
     searchResults,
     searchRepository,
   };
